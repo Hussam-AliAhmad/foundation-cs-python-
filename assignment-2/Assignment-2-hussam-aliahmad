@@ -1,0 +1,38 @@
+def countDigits(n):
+  if n < 10 :
+    return 1
+  else:
+    return 1 + countDigits(n // 10)
+
+def findMax(list):
+  if len(list) == 1:
+    return list[0]
+  else:
+    max = findMax(list[1:])
+    if max > list[0]:
+      return max
+    else:
+      return list[0]
+def main():
+  while True :
+    print("Menu: ")
+    print("1. Count digits")
+    print( "2. Find max")
+    print("3.exit")
+  
+    choice = int(input("Enter your choice: "))
+    if choice == 1:
+      n = int(input("Enter a number: "))
+      print("Number of digits: ", countDigits(n))
+    elif choice == 2:
+      list = []
+      n = eval(input("Enter a list of numbers: ")).split()
+      while n > 0:
+        list.append(n % 10)
+        n = n // 10
+      print("Max: ", findMax(list))
+    elif choice == 3:
+      break
+    else:
+      print("Invalid choice")
+main()
