@@ -16,3 +16,9 @@ def get_all_students(student_data):
 def get_students_by_major(student_data, major):
   students = [student for student in student_data if student["Major"] == major]
   return students
+# we need a function to add a new student 
+def add_student(student_data, name, age, major, gpa):
+  new_student_id = max([student["ID"] for student in student_data]) + 1
+  new_student = {"ID": new_student_id,"Name": name,"Age": age,"Major": major,"GPA": gpa}
+  student_data.append(new_student)
+
