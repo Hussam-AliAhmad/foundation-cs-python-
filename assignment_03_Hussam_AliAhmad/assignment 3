@@ -33,3 +33,8 @@ def delete_student_by_id(student_data, student_id):
       if student["ID"] == student_id:
           student_data.remove(student)
           return
+# we need a function to calculate the average GPA of all students
+def calculate_average_gpa(student_data):
+  total_gpa = sum(student["GPA"] for student in student_data)
+  average_gpa = total_gpa / len(student_data)
+  return average_gpa
