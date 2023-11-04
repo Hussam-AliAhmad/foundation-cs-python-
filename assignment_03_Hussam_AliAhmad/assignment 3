@@ -21,4 +21,9 @@ def add_student(student_data, name, age, major, gpa):
   new_student_id = max([student["ID"] for student in student_data]) + 1
   new_student = {"ID": new_student_id,"Name": name,"Age": age,"Major": major,"GPA": gpa}
   student_data.append(new_student)
-
+# we need a function to find common majors in two lists of students
+def find_common_majors(student_data1, student_data2):
+  majors1 = {student["Major"] for student in student_data1}
+  majors2 = {student["Major"] for student in student_data2}
+  common_majors = majors1.intersection(majors2)
+  return common_majors
