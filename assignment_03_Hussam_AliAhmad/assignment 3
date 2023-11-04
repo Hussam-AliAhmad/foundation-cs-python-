@@ -1,0 +1,5 @@
+student_data = [{"ID": 1,"Name": "Ahmad","Age": 20,"Major": "Computer Science","GPA": 3.7},
+                {"ID": 2,"Name": "Nour","Age": 21,"Major": "Engineering","GPA": 3.9},
+                {"ID": 3,"Name": "Ali","Age": 22,"Major": "Mathematics","GPA": 3.6},
+                {"ID": 4,"Name": "Mohammad","Age": 19,"Major": "Biology","GPA": 3.8},
+                {"ID": 5,"Name": "leen","Age": 20,"Major": "Biology","GPA": 3.5}]
