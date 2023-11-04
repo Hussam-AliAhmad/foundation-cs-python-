@@ -9,3 +9,6 @@ def get_student_by_id(student_data, student_id):
       if student["ID"] == student_id:
           return student
   return None
+# we need a function to get all students data
+def get_all_students(student_data):
+  return student_data
