@@ -27,3 +27,9 @@ def find_common_majors(student_data1, student_data2):
   majors2 = {student["Major"] for student in student_data2}
   common_majors = majors1.intersection(majors2)
   return common_majors
+# we need a function to delete a student by ID
+def delete_student_by_id(student_data, student_id):
+  for student in student_data:
+      if student["ID"] == student_id:
+          student_data.remove(student)
+          return
