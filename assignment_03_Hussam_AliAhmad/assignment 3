@@ -43,4 +43,18 @@ def get_top_performers(student_data, num_top):
   sorted_students = sorted(student_data, key=lambda student: student["GPA"], reverse=True)
   top_performers = [(student["Name"]) for student in sorted_students[:num_top]]
   return top_performers
+# Main program
+while True:
+  print("- - - - - - - - - - - - - - -")
+  print("1. Get Student by ID")
+  print("2. Get All Students")
+  print("3. Get Students by Major")
+  print("4. Add Student")
+  print("5. Find Common Majors")
+  print("6. Delete Student")
+  print("7. Calculate Average GPA")
+  print("8. Get Top Performers")
+  print("9. Exit")
+
+  choice = int(input("Choice: "))
 
