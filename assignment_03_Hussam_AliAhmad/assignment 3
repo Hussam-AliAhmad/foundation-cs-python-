@@ -38,3 +38,9 @@ def calculate_average_gpa(student_data):
   total_gpa = sum(student["GPA"] for student in student_data)
   average_gpa = total_gpa / len(student_data)
   return average_gpa
+# we need a function to get top performers by GPA
+def get_top_performers(student_data, num_top):
+  sorted_students = sorted(student_data, key=lambda student: student["GPA"], reverse=True)
+  top_performers = [(student["Name"]) for student in sorted_students[:num_top]]
+  return top_performers
+
