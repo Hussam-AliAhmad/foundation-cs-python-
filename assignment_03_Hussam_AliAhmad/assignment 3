@@ -3,3 +3,9 @@ student_data = [{"ID": 1,"Name": "Ahmad","Age": 20,"Major": "Computer Science","
                 {"ID": 3,"Name": "Ali","Age": 22,"Major": "Mathematics","GPA": 3.6},
                 {"ID": 4,"Name": "Mohammad","Age": 19,"Major": "Biology","GPA": 3.8},
                 {"ID": 5,"Name": "leen","Age": 20,"Major": "Biology","GPA": 3.5}]
+# we need a function to find the students data knowing that student data and student id are arguments
+def get_student_by_id(student_data, student_id):
+  for student in student_data:
+      if student["ID"] == student_id:
+          return student
+  return None
