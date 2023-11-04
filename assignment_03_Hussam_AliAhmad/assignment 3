@@ -12,3 +12,7 @@ def get_student_by_id(student_data, student_id):
 # we need a function to get all students data
 def get_all_students(student_data):
   return student_data
+# we need a function to get a student data by there major
+def get_students_by_major(student_data, major):
+  students = [student for student in student_data if student["Major"] == major]
+  return students
