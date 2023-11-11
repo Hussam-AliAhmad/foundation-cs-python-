@@ -118,10 +118,9 @@ def open_nested_tab(browser):
 
     print(f"Opened nested tab under {parent_tab['title']} - {parent_tab['url']}: {nested_title} - {nested_url}")
 def clear_all_tabs(browser):
-    browser.clear()
-    print("All tabs cleared.")
-
-# Example usage
-filename = "browser_state.json"
-browser = load_browser_state(filename)
-current_tab = None
+    confirm = input("Are you sure you want to clear all tabs? (yes/no): ").lower()
+    if confirm == 'yes':
+        browser.clear()
+        print("All tabs cleared.")
+    else:
+        print("Clearing canceled.")
