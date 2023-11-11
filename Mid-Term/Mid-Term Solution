@@ -64,7 +64,7 @@ def switch_tab(browser, index=None):
     else:
         tab = browser[-1]
 
-    # Perform web scraping to fetch and display HTML content
+    # Performing web scraping to fetch and display HTML content
     try:
         response = requests.get(tab['url'])
         response.raise_for_status()
@@ -73,3 +73,8 @@ def switch_tab(browser, index=None):
         print(soup.prettify())
     except requests.exceptions.RequestException as e:
         print(f"Error fetching content: {e}")
+def display_all_tabs(browser):
+    print("Open tabs:")
+    for i, tab in enumerate(browser):
+        print(f"{i + 1}.")
+        display_tabs(tab)
