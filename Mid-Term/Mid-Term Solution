@@ -2,6 +2,8 @@
 
 #https://www.w3schools.com/python/python_json.asp
 import json
+#https://pypi.org/project/requests/
+import requests
 def open_tab(browser):
   while True:
       title = input("Enter the title of the website: ")
