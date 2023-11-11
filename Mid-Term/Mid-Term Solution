@@ -152,12 +152,7 @@ def import_tabs(browser):
         print(f"Error decoding JSON in file {filepath}: {e}")
     except Exception as e:
         print(f"Error: {e}")
-
-# Example usage
-filename = "browser_state.json"
-browser = load_browser_state(filename)
-current_tab = None
-while True:
+def display_menu():
     print("\nMenu:")
     print("1. Open Tab")
     print("2. Close Tab")
@@ -168,3 +163,8 @@ while True:
     print("7. Save Tabs")
     print("8. Import Tabs")
     print("9. Exit")
+
+# Example usage
+filename = "browser_state.json"
+browser = load_browser_state(filename)
+current_tab = None
