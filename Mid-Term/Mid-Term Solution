@@ -168,3 +168,30 @@ def display_menu():
 filename = "browser_state.json"
 browser = load_browser_state(filename)
 current_tab = None
+while True:
+    display_menu()
+
+    choice = input("Enter your choice: ")
+
+    if choice == '1':
+        open_tab(browser)
+    elif choice == '2':
+        index_input = input("Enter index of the tab to close (press Enter to close the last opened tab): ")
+        close_tab(browser, index_input)
+    elif choice == '3':
+        index_input = input("Enter index of the tab to switch to (press Enter to switch to the last opened tab): ")
+        switch_tab(browser, index_input)
+    elif choice == '4':
+        display_all_tabs(browser)
+    elif choice == '5':
+        open_nested_tab(browser)
+    elif choice == '6':
+        clear_all_tabs(browser)
+    elif choice == '7':
+        save_tabs(browser)
+    elif choice == '8':
+        import_tabs(browser)
+    elif choice == '9':
+        break
+    else:
+        print("Invalid choice. Please enter a number from 1 to 9.")
