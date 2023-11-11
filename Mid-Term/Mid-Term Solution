@@ -139,3 +139,19 @@ def save_tabs(browser):
 filename = "browser_state.json"
 browser = load_browser_state(filename)
 current_tab = None
+def import_tabs(browser):
+    filepath = input("Enter the file path to import tabs from: ")
+    try:
+        with open(filepath, 'r') as file:
+            imported_tabs = json.load(file)
+            browser.extend(imported_tabs)
+        print(f"Tabs imported from {filepath}")
+    except FileNotFoundError:
+        print(f"Error: File not found - {filepath}")
+    except Exception as e:
+        print(f"Error: {e}")
+
+# Example usage
+filename = "browser_state.json"
+browser = load_browser_state(filename)
+current_tab = None
