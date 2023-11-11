@@ -148,6 +148,8 @@ def import_tabs(browser):
         print(f"Tabs imported from {filepath}")
     except FileNotFoundError:
         print(f"Error: File not found - {filepath}")
+    except json.JSONDecodeError as e:
+        print(f"Error decoding JSON in file {filepath}: {e}")
     except Exception as e:
         print(f"Error: {e}")
 
