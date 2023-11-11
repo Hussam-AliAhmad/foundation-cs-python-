@@ -74,7 +74,22 @@ def switch_tab(browser, index=None):
     except requests.exceptions.RequestException as e:
         print(f"Error fetching content: {e}")
 def display_all_tabs(browser):
-    print("Open tabs:")
-    for i, tab in enumerate(browser):
-        print(f"{i + 1}.")
-        display_tabs(tab)
+    print("Display Options:")
+    print("1. Display titles only")
+    print("2. Display content of a specific tab")
+
+    choice = input("Enter your choice: ")
+
+    if choice == '1':
+        print("Open tabs:")
+        for i, tab in enumerate(browser):
+            print(f"{i + 1}.")
+            display_tabs(tab)
+    elif choice == '2':
+        index = int(input("Enter the index of the tab to display its content: "))
+        if 0 <= index < len(browser):
+            switch_tab(browser, index)
+        else:
+            print("Invalid tab index.")
+    else:
+        print("Invalid choice. Please enter 1 or 2.")
