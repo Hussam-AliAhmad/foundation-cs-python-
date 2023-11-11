@@ -24,15 +24,20 @@ def open_tab(browser):
           print(f"Tab already open: {title} - {url}")
 #https://www.w3schools.com/python/ref_list_pop.asp
 def close_tab(browser, index=None):
-    if index is None:
-        if browser:
-            closed_tab = browser.pop()
-            print(f"Closed last opened tab: {closed_tab['title']} - {closed_tab['url']}")
-        else:
-            print("No tabs to close.")
+    if not browser:
+        print("No tabs to close.")
+        return
+
+    if index is not None:
+        try:
+            index = int(index)
+            if 0 <= index < len(browser):
+                closed_tab = browser.pop(index)
+                print(f"Closed tab: {closed_tab['title']} - {closed_tab['url']}")
+            else:
+                print("Invalid tab index")
+        except ValueError:
+            print("Invalid input. Please enter a valid tab index.")
     else:
-        if 0 <= index < len(browser):
-            closed_tab = browser.pop(index)
-            print(f"Closed tab: {closed_tab['title']} - {closed_tab['url']}")
-        else:
-            print("Invalid tab index")
+        closed_tab = browser.pop()
+        print(f"Closed last opened tab: {closed_tab['title']} - {closed_tab['url']}")
