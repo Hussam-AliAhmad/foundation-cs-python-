@@ -160,6 +160,7 @@ def load_browser_state(filename):
       print(f"Error decoding JSON in file {filename}: {e}")
       return []
 def display_menu():
+    print("\nWelcome to the Advanced Browser Tabs Simulation!")
     print("\nMenu:")
     print("1. Open Tab")
     print("2. Close Tab")
