@@ -124,3 +124,18 @@ def clear_all_tabs(browser):
         print("All tabs cleared.")
     else:
         print("Clearing canceled.")
+def save_tabs(browser):
+    filepath = input("Enter the file path to save the tabs: ")
+    try:
+        with open(filepath, 'w') as file:
+            json.dump(browser, file, indent=2)
+        print(f"Tabs saved to {filepath}")
+    except FileNotFoundError:
+        print(f"Error: File not found - {filepath}")
+    except Exception as e:
+        print(f"Error: {e}")
+
+# Example usage
+filename = "browser_state.json"
+browser = load_browser_state(filename)
+current_tab = None
