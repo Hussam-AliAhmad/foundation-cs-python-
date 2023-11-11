@@ -45,3 +45,19 @@ def close_tab(browser, index=None):
     else:
         closed_tab = browser.pop()
         print(f"Closed last opened tab: {closed_tab['title']} - {closed_tab['url']}")
+def switch_tab(browser, index=None):
+    if not browser:
+        print("No tabs to switch.")
+        return
+
+    if index is not None:
+        try:
+            index = int(index)
+            if 0 <= index < len(browser):
+                display_tab_content(browser[index]['url'])
+            else:
+                print("Invalid tab index")
+        except ValueError:
+            print("Invalid input. Please enter a valid tab index.")
+    else:
+        display_tab_content(browser[-1]['url'])
