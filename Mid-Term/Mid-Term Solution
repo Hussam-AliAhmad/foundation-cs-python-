@@ -2,3 +2,23 @@
 
 #https://www.w3schools.com/python/python_json.asp
 import json
+def open_tab(browser):
+  while True:
+      title = input("Enter the title of the website: ")
+      if not title:
+          print("Title cannot be empty. Please try again.")
+          continue
+
+      url = input("Enter the URL of the website: ")
+      if not url:
+          print("URL cannot be empty. Please try again.")
+          continue
+
+      tab = {"title": title, "url": url}
+
+      if tab not in browser:
+          browser.append(tab)
+          print(f"Opened new tab: {title} - {url}")
+          break
+      else:
+          print(f"Tab already open: {title} - {url}")
