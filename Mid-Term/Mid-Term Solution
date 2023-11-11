@@ -95,7 +95,7 @@ def display_all_tabs(browser):
         print("Invalid choice. Please enter 1 or 2.")
 def open_nested_tab(browser):
     display_all_tabs(browser)
-    
+
     while True:
         parent_index = input("Enter the index of the parent tab where you want to insert a nested tab: ")
 
@@ -148,6 +148,17 @@ def import_tabs(browser):
         print(f"Error decoding JSON in file {filepath}: {e}")
     except Exception as e:
         print(f"Error: {e}")
+def load_browser_state(filename):
+  try:
+      with open(filename, 'r') as file:
+          browser_state = json.load(file)
+      return browser_state
+  except FileNotFoundError:
+      print(f"Error: File not found - {filename}")
+      return []
+  except json.JSONDecodeError as e:
+      print(f"Error decoding JSON in file {filename}: {e}")
+      return []
 def display_menu():
     print("\nMenu:")
     print("1. Open Tab")
