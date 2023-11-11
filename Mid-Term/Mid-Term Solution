@@ -4,6 +4,8 @@
 import json
 #https://pypi.org/project/requests/
 import requests
+#https://stackoverflow.com/questions/18831380/how-can-i-from-bs4-import-beautifulsoup
+from bs4 import BeautifulSoup
 def open_tab(browser):
   while True:
       title = input("Enter the title of the website: ")
