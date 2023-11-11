@@ -117,3 +117,11 @@ def open_nested_tab(browser):
     parent_tab["nested_tabs"].append(nested_tab)
 
     print(f"Opened nested tab under {parent_tab['title']} - {parent_tab['url']}: {nested_title} - {nested_url}")
+def clear_all_tabs(browser):
+    browser.clear()
+    print("All tabs cleared.")
+
+# Example usage
+filename = "browser_state.json"
+browser = load_browser_state(filename)
+current_tab = None
