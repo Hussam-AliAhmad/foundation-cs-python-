@@ -31,7 +31,7 @@ def close_tab(browser, index=None):
     if not browser:
         print("No tabs to close.")
         return
-
+#https://www.w3schools.com/python/python_try_except.asp
     if index is not None:
         try:
             index = int(index)
@@ -171,8 +171,6 @@ def display_menu():
     print("7. Save Tabs")
     print("8. Import Tabs")
     print("9. Exit")
-
-# Example usage
 filename = "browser_state.json"
 browser = load_browser_state(filename)
 current_tab = None
