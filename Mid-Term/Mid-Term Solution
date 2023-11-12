@@ -2,10 +2,14 @@
 
 #https://www.w3schools.com/python/python_json.asp
 import json
+
 #https://pypi.org/project/requests/
 import requests
+
 #https://stackoverflow.com/questions/18831380/how-can-i-from-bs4-import-beautifulsoup
 from bs4 import BeautifulSoup
+
+
 def open_tab(browser):
   while True:
       title = input("Enter the title of the website: ")
@@ -26,11 +30,15 @@ def open_tab(browser):
           break
       else:
           print(f"Tab already open: {title} - {url}")
+
+
 #https://www.w3schools.com/python/ref_list_pop.asp
 def close_tab(browser, index=None):
     if not browser:
         print("No tabs to close.")
         return
+
+  
 #https://www.w3schools.com/python/python_try_except.asp
     if index is not None:
         try:
@@ -45,6 +53,8 @@ def close_tab(browser, index=None):
     else:
         closed_tab = browser.pop()
         print(f"Closed last opened tab: {closed_tab['title']} - {closed_tab['url']}")
+
+
 def switch_tab(browser, index=None):
     if not browser:
         print("No tabs to switch.")
@@ -73,6 +83,8 @@ def switch_tab(browser, index=None):
         print(soup.prettify())
     except requests.exceptions.RequestException as e:
         print(f"Error fetching content: {e}")
+
+
 def display_all_tabs(browser):
     print("Display Options:")
     print("1. Display titles only")
@@ -93,6 +105,8 @@ def display_all_tabs(browser):
             print("Invalid tab index.")
     else:
         print("Invalid choice. Please enter 1 or 2.")
+
+
 def open_nested_tab(browser):
     display_all_tabs(browser)
 
@@ -117,6 +131,8 @@ def open_nested_tab(browser):
     parent_tab["nested_tabs"].append(nested_tab)
 
     print(f"Opened nested tab under {parent_tab['title']} - {parent_tab['url']}: {nested_title} - {nested_url}")
+
+
 def clear_all_tabs(browser):
     confirm = input("Are you sure you want to clear all tabs? (yes/no): ").lower()
     if confirm == 'yes':
@@ -124,6 +140,8 @@ def clear_all_tabs(browser):
         print("All tabs cleared.")
     else:
         print("Clearing canceled.")
+
+
 def save_tabs(browser):
     filepath = input("Enter the file path to save the tabs: ")
     try:
@@ -136,6 +154,8 @@ def save_tabs(browser):
         print(f"Error: {e}")
 current_tab = None
 def import_tabs(browser):
+
+  
     filepath = input("Enter the file path to import tabs from: ")
     try:
         with open(filepath, 'r') as file:
@@ -148,6 +168,8 @@ def import_tabs(browser):
         print(f"Error decoding JSON in file {filepath}: {e}")
     except Exception as e:
         print(f"Error: {e}")
+
+
 def load_browser_state(filename):
   try:
       with open(filename, 'r') as file:
@@ -159,6 +181,8 @@ def load_browser_state(filename):
   except json.JSONDecodeError as e:
       print(f"Error decoding JSON in file {filename}: {e}")
       return []
+
+
 def display_menu():
     print("\nWelcome to the Advanced Browser Tabs Simulation!")
     print("\nMenu:")
@@ -171,6 +195,8 @@ def display_menu():
     print("7. Save Tabs")
     print("8. Import Tabs")
     print("9. Exit")
+
+
 filename = "browser_state.json"
 browser = load_browser_state(filename)
 current_tab = None
